@@ -1,22 +1,35 @@
 import React from 'react';
 import Link from 'next/link';
 import { urlFor } from '../lib/client';
-import { HiMiniMinusSmall } from 'react-icons/hi2';
+import { eUSLocale } from '../lib/utils';
 
-const Product = ({ product: { image, name, slug, price } }) => {
+const Product = ({ product }) => {
+  if (!product) return null;
+
+  const { image, name, slug, price } = product;
+  const imageSource = Array.isArray(image) ? image[0] : image;
+  const imageUrl = imageSource ? urlFor(imageSource).url() : '';
+  const productSlug = slug?.current || '';
+
   return (
     <div>
-      <Link href={`/product/${slug.current}`}>
+      <Link href={`/product/${productSlug}`}>
         <div className="product-card">
-          <img src={urlFor(image).url()} width={250} alt={name} />
-          <p className="product-name">{name}</p>
-          <p className="product-price">
-            $
-            {price.toLocaleString('en-US', {
-              maximumFractionDigits: 2,
-              minimumFractionDigits: 2,
-            })}
-          </p>
+          <figure className="fliptile">
+            {imageUrl && (
+              <img
+                src={imageUrl}
+                width={250}
+                height={250}
+                className="product-image"
+                alt={name || 'Product'}
+              />
+            )}
+            <figcaption>
+              <p className="product-name">{name}</p>
+            </figcaption>
+          </figure>
+          <p className="product-price">${eUSLocale(price)}</p>
         </div>
       </Link>
     </div>

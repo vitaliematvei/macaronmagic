@@ -3,7 +3,7 @@ import Head from 'next/head';
 
 import NavBar from './NavBar';
 import DemoBanner from './DemoBanner';
-import Footer from './Footer';
+import Footer from './Footer/Footer';
 
 const Layout = ({ children }) => {
   return (

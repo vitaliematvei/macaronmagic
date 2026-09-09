@@ -11,7 +11,7 @@
   "dependencies": {
     "@sanity/client": "latest",
     "@sanity/image-url": "latest",
-    "@stripe/stripe-js": "latest",
+    "@stripe/stripe-js": "^9.14.0",
     "canvas-confetti": "latest",
     "next": "latest",
     "next-sanity-image": "latest",
@@ -23,13 +23,8 @@
     "stripe": "latest"
   },
   "devDependencies": {
-    "eslint": "latest",
-    "eslint-config-airbnb": "latest",
+    "eslint": "^9.0.0",
     "eslint-config-next": "latest",
-    "eslint-plugin-import": "latest",
-    "eslint-plugin-jsx-a11y": "latest",
-    "eslint-plugin-react": "latest",
-    "eslint-plugin-react-hooks": "latest",
-    "sass": "latest"
+    "sass": "^1.103.1"
   }
 }

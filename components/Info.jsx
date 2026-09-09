@@ -1,5 +1,10 @@
 import React from 'react';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import dynamic from 'next/dynamic';
+import { Tab, TabList, TabPanel } from 'react-tabs';
+
+const Tabs = dynamic(() => import('react-tabs').then((mod) => mod.Tabs), {
+  ssr: false,
+});
 
 const Info = ({ ingredients, weight, delivery }) => (
   <Tabs>
