@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "cypress": "cypress open",
+    "cypress:headless": "start-server-and-test \"npm run dev -- -p 3002\" http://localhost:3002 \"cypress run --e2e --browser electron\"",
+    "cypress:component": "cypress run --component"
   },
   "dependencies": {
     "@sanity/client": "latest",
@@ -23,8 +26,24 @@
     "stripe": "latest"
   },
   "devDependencies": {
+    "@cypress/webpack-dev-server": "^6.0.0",
+    "cypress": "^16.0.0",
     "eslint": "^9.0.0",
     "eslint-config-next": "latest",
-    "sass": "^1.103.1"
+    "next-seo": "^6.6.0",
+    "sass": "^1.103.1",
+    "start-server-and-test": "^3.0.12",
+    "webpack": "^5.111.0"
+  },
+  "allowScripts": {
+    "@parcel/watcher@2.6.0": true,
+    "sharp@0.34.5": true,
+    "unrs-resolver@1.12.2": true
+  },
+  "nextBundleAnalysis": {
+    "budget": 358400,
+    "budgetPercentIncreaseRed": 20,
+    "minimumChangeThreshold": 0,
+    "showDetails": true
   }
 }
